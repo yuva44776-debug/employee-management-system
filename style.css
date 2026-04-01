@@ -79,7 +79,7 @@ td button {
 
 /* Remove Button */
 td button:last-child {
-    background: rgb(221, 143, 143);
+    background: rgb(204, 98, 98);
 }
 .stats {
     display: flex;
