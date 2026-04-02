@@ -4,6 +4,13 @@ body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #667eea, #764ba2);
 }
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
 /* 🔥 MAIN CONTAINER */
 .main-container {
@@ -213,4 +220,9 @@ td button:last-child {
 .register-btn:hover {
     background: #667eea;
     color: white;
+}
+.page-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
 }
