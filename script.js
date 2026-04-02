@@ -120,6 +120,7 @@ window.onload = function () {
         });
 
         displayEmployees();
+        document.getElementById("search").addEventListener("keyup", searchEmployee);
     }
 
 
@@ -183,4 +184,21 @@ function showUser() {
 }
 if (localStorage.getItem("loggedIn") !== "true") {
     window.location.href = "login.html";
+}
+function searchEmployee() {
+    let input = document.getElementById("search").value.toLowerCase();
+
+    let table = document.getElementById("employeeTable");
+    let rows = table.getElementsByTagName("tr");
+
+    for (let i = 0; i < rows.length; i++) {
+        let name = rows[i].cells[0].innerText.toLowerCase();
+        let dept = rows[i].cells[1].innerText.toLowerCase();
+
+        if (name.includes(input) || dept.includes(input)) {
+            rows[i].style.display = "";
+        } else {
+            rows[i].style.display = "none";
+        }
+    }
 }
