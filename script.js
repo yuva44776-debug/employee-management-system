@@ -112,15 +112,27 @@ function updateStats() {
 }
 
 
-// 🔷 Load Data When Page Opens
+
 window.onload = function () {
     let data = localStorage.getItem("employees");
 
     if (data) {
         employees = JSON.parse(data);
+
+        employees.forEach(emp => {
+            if (!emp.attendance) emp.attendance = "Absent";
+        });
+
         displayEmployees();
     }
+
+
+    showUser();
 };
+function showUser() {
+    let user = localStorage.getItem("currentUser");
+    document.getElementById("userDisplay").innerText = user;
+}
 let chart;
 
 function renderChart() {
@@ -164,4 +176,15 @@ function searchEmployee() {
             rows[i].style.display = "none";
         }
     }
+}
+function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "login.html";
+}
+function showUser() {
+    let user = localStorage.getItem("currentUser");
+    document.getElementById("userDisplay").innerText = user;
+}
+if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
 }

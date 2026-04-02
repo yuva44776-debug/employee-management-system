@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Employee Automation System</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-<div class="container">
+<div class="main-container">
+    <link rel="stylesheet" href="style.css">
 
-    <h1>Employee Dashboard</h1>
-    <div class="stats">
-
-    <div class="card">
-        <h3>Total Employees</h3>
-        <p id="total">0</p>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <h3>Welcome, <span id="userDisplay"></span></h3>
+        <button onclick="logout()">Logout</button>
     </div>
 
-    <div class="card">
-        <h3>Active Employees</h3>
-        <p id="active">0</p>
+    <!-- DASHBOARD TITLE -->
+    <h1 class="dashboard-title">Employee Dashboard</h1>
+
+    <!-- CARDS -->
+    <div class="cards">
+        <div class="card">
+            <h3>Total Employees</h3>
+            <p id="totalEmp">0</p>
+        </div>
+        <div class="card">
+            <h3>Active Employees</h3>
+            <p id="activeEmp">0</p>
+        </div>
+        <div class="card">
+            <h3>Inactive Employees</h3>
+            <p id="inactiveEmp">0</p>
+        </div>
     </div>
 
-    <div class="card">
-        <h3>Inactive Employees</h3>
-        <p id="inactive">0</p>
-    </div>
-
-</div>
-
-    <div class="form-container">
+    <!-- ADD EMPLOYEE -->
+    <div class="form-section">
         <input type="text" id="name" placeholder="Employee Name">
-
         <select id="department">
-            <option value="">Select Department</option>
-            <option value="IT">IT</option>
-            <option value="HR">HR</option>
-            <option value="Sales">Sales</option>
+            <option>Select Department</option>
+            <option>HR</option>
+            <option>IT</option>
+            <option>Sales</option>
         </select>
-
         <button onclick="addEmployee()">Add Employee</button>
     </div>
 
+    <!-- SEARCH -->
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search Employee...">
+    </div>
 
-    <div class="table-container">
-        <input type="text" id="search" placeholder="Search Employee..." onkeyup="searchEmployee()">
+    <!-- TABLE -->
+    <div class="table-section">
         <h2>Employee Records</h2>
-
         <table>
             <thead>
                 <tr>
@@ -62,8 +67,11 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<button onclick="logout()">Logout</button>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>\
 
 <script src="script.js"></script>
+
 </body>
 </html>
