@@ -32,6 +32,7 @@ function addEmployee() {
     // Clear input
     document.getElementById("name").value = "";
     document.getElementById("department").value = "";
+    updateStats();
 }
 
 
@@ -95,20 +96,15 @@ function editEmployee(index) {
 }
 
 
-// 🔷 Update Statistics
 function updateStats() {
     let total = employees.length;
-    let active = 0;
-    let inactive = 0;
 
-    employees.forEach(emp => {
-        if (emp.status === "Active") active++;
-        else inactive++;
-    });
+    let active = employees.filter(emp => emp.status === "Active").length;
+    let inactive = employees.filter(emp => emp.status === "Inactive").length;
 
-    document.getElementById("total").innerText = total;
-    document.getElementById("active").innerText = active;
-    document.getElementById("inactive").innerText = inactive;
+    document.getElementById("totalEmp").innerText = total;
+    document.getElementById("activeEmp").innerText = active;
+    document.getElementById("inactiveEmp").innerText = inactive;
 }
 
 
